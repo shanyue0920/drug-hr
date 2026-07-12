@@ -2,7 +2,7 @@
 name: drug-hr
 slug: drug-hr
 displayName: 医药行业人力·组织·激励·人效
-version: 2.0.0
+version: 2.0.1
 author: zhouwei <WeChat: Shanyue0920>
 summary: 医药营销/销售团队人力(HR)结构化分析。8维覆盖组织设计与梯队/编制规划与岗位配置/人才标准与招聘选拔/激励体系与薪酬绩效/职级体系与晋升通道/培训体系与能力发展(内容归医药培训Skill)/人效与团队诊断/合规与行为红线。核心创新：含可计算数值模板(奖金测算/覆盖模型/人效诊断)、严格HR边界三档(独占/协同接口/非HR边界)。本 skill 内置知识库(主要复用数据校准规则)，强制数据校准(🔍/💭)与HR信息框定，划清HR管"人供给"与销售管"业务执行"的边界。
 license: MIT
@@ -16,7 +16,7 @@ description: >
   培训体系与能力发展(培训体系架构/新人训练营机制/经理领导力体系/能力评估与IDP/导师带教机制；具体培训内容产品合规/技能合规归后续医药培训Skill)、
   人效与团队诊断(人效指标/团队健康度/流失预警/低绩效PIP/区域效能诊断模型)、
   合规与行为红线(医药代表备案/反商业贿赂红线/与合规skill接口/违规处理/数据真实性)。
-  本 skill 内置共享底座，主要复用数据校准规则(🔍/💭)，不重复临床基础。
+  本 skill 内置基础模块（foundation.md），主要复用数据校准规则(🔍/💭)，不重复临床基础。
   按使用者水平切换新人(详细+输入清单)或资深(精简+直给初稿)深度档位。
   严格区分HR独占职能(深做)、协同接口(销售/合规/医学,只给接口清单)、
   非HR边界(纯销售执行/纯推广合规审查/纯市场注册策略,外置)。
@@ -29,8 +29,8 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 ---
 
 
-> **🔧 自包含声明**：本 skill 已**完全自包含**，可独立运行，无需安装任何其他 skill 或外部共享底座。
-> 内置共享知识存于本 skill 的 `references/`：临床档案框架与校准规则见 `references/foundation.md`；循证三件套见 `references/evidence-levels.md`、`references/drug-classes.md`、`references/market-methodology.md`；专利FTO框架见 `references/foundation.md` §三。
+> **🔧 自包含声明**：本 skill 已**完全自包含**，可独立运行，无需安装任何其他 skill 或外部依赖。
+> 内置共享知识存于本 skill 的 `references/`：临床档案框架与校准规则见 `references/foundation.md`；循证三件套见 `references/evidence-levels.md`、`references/drug-classes.md`、`references/market-methodology.md`；专利FTO框架见 `references/foundation.md` §3。
 
 # 医药行业人力 Skill（医药行业人力·组织·激励·人效）
 从人力(HR/营销组织)视角，对一支医药销售/营销团队做结构化分析与方案设计，把业务战略翻译成"人"的引擎：用组织承接战略、用激励驱动行为、用能力支撑执行、用人效衡量健康。本 skill 内置知识库，强制数据校准与信息框定。
@@ -44,7 +44,7 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 - `headcount-coverage-model.md`（簇H2）：区域覆盖模型——代表数 vs 覆盖终端 × 工作量，测算合理 HC。
 - `productivity-diagnosis-model.md`（簇H7）：人效诊断模型——单人/单院产出 × 团队健康度，定位低效区域。
 
-**内置共享知识**：本 Skill 内置共享底座（临床档案/校准规则/循证三件套/专利FTO）——主要复用其**数据校准规则(🔍/💭)**、references 知识库。不重复临床档案（HR 一般不调用临床档案）。**具体培训内容（产品知识/疾病知识/合规红线/拜访技能）归后续独立的「医药培训 Skill」，本 Skill 的 H6 只做培训体系设计与落地管理，不写培训课件内容。**校准规则(§3)、完整性规则(§6)以 本 skill 内置 为准，本文件内联要点作提醒。
+**内置共享知识**：本 Skill 内置基础模块（foundation.md）（临床档案/校准规则/循证三件套/专利FTO）——主要复用其**数据校准规则(🔍/💭)**、references 知识库。不重复临床档案（HR 一般不调用临床档案）。**具体培训内容（产品知识/疾病知识/合规红线/拜访技能）归后续独立的「医药培训 Skill」，本 Skill 的 H6 只做培训体系设计与落地管理，不写培训课件内容。**校准规则(§2)、完整性规则(§4)以 references/foundation.md 为准，本文件内联要点作提醒。
 
 ## 2. 两轮工作机制（防遗漏·防编造）
 
@@ -130,7 +130,7 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 
 ### 2.2 第二轮：分析编写（基于锁死事实）
 1. 第一轮采集通过，⬜项 ≤5 个方可进入。
-2. 以锁死的事实调用 本 skill 内置 数据校准规则，按 §3-§5 走完整设计。
+2. 以锁死的事实调用 references/foundation.md 数据校准规则，按 §3-§5 走完整设计。
 3. 方案层不得修改采集层事实，只能引用；数值结论来自 references 模板填数。
 4. 方案中引用的行业基准须能回溯到采集字段编号（如 C4 薪酬对标）。
 
@@ -347,7 +347,7 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 
 ## 6. 数据校准规则（强制 · HR 适配）
 
-本 Skill 输出的每条关键数据都必须可溯源、可校验。严格执行以下 5 条（与 本 skill references/foundation.md §3 对齐，并按 HR 场景适配）：
+本 Skill 输出的每条关键数据都必须可溯源、可校验。严格执行以下 5 条（与 本 skill references/foundation.md §2 对齐，并按 HR 场景适配）：
 
 - **来源分级标注**：每条关键数据标可信度——🔍 已查证（官方法规/权威薪酬调研/行业数据库）、💭 推测或不确定（经验区间或单一非权威来源）。禁止把 💭 当 🔍 呈现。企业内数由用户提供，标"用户提供"即可。
 - **关键事实交叉校验**：薪酬带宽/人效基准/流失率等须至少 1 个权威来源(🔍)或 2 个独立来源一致；仅单源经验值标「💭 待核实」。
